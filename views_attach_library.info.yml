@@ -4,6 +4,4 @@ type: module
 core: 8.x
 package: Views Library
 dependencies:
-  - views
-  - views_ui
-
+  - drupal:views
