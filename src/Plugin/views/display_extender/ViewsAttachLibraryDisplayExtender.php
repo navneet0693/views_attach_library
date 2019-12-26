@@ -27,10 +27,11 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
       $form['attach_library'] = [
         '#type' => 'textfield',
         '#title' => 'Add Libraries',
-        '#description' => $this->t('Add library name in textfield , for exmaple '
-            . 'add <b>"abc/xyz"</b> where <b>abc</b> is module or theme name and '
-            . '<b>xyz</b> is library name. For more info please read README.txt file.'),
-        '#default_value' => (!empty($this->options['attach_library']['attach_library'])) ? $this->options['attach_library']['attach_library']: '',
+        '#description' => $this->t('Add library name in textfield , for exmaple'
+          . ' add <b>"abc/xyz"</b> where <b>abc</b> is module or theme name and'
+          . ' <b>xyz</b> is library name. For more info please read README.txt file.'
+          . ' <b>To add multiple libraries</b>, separate them with a <b>comma(,) separated.</b>'),
+        '#default_value' => (!empty($this->options['attach_library']['attach_library'])) ? $this->options['attach_library']['attach_library'] : '',
       ];
     }
   }
@@ -39,7 +40,7 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    * Validate the options form.
    */
   public function validateOptionsForm(&$form, FormStateInterface $form_state) {
-    
+
   }
 
   /**
@@ -56,14 +57,14 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    * Set up any variables on the view prior to execution.
    */
   public function preExecute() {
-    
+
   }
 
   /**
    * Inject anything into the query that the display_extender handler needs.
    */
   public function query() {
-    
+
   }
 
   /**
@@ -79,7 +80,7 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
     $options['attach_library'] = [
       'category' => 'attach_library',
       'title' => t('Attach Library'),
-      'value' => (empty($this->options['attach_library']['attach_library'])) ? $this->t('Add Library'): $this->t('Edit Library'),
+      'value' => (empty($this->options['attach_library']['attach_library'])) ? $this->t('Add Library') : $this->t('Edit Library'),
     ];
   }
 
@@ -87,7 +88,7 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    * Lists defaultable sections and items contained in each section.
    */
   public function defaultableSections(&$sections, $section = NULL) {
-    
+
   }
 
 }
