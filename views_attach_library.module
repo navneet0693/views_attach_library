@@ -6,6 +6,7 @@
  */
 
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_views_pre_render().
@@ -20,5 +21,20 @@ function views_attach_library_views_pre_render(ViewExecutable $view) {
       // Attach library to view.
       $view->element['#attached']['library'][] = trim($library);
     }
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function views_attach_library_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+
+    case 'help.page.views_attach_library':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("The library in views module is designed to attach JS and CSS library in views, by providing just library name.") . '</p>';
+      $output .= '</dl>';
+      return $output;
   }
 }
