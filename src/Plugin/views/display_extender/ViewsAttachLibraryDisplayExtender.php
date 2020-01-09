@@ -24,13 +24,15 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     if ($form_state->get('section') == 'attach_library') {
+      $description = '<ul>';
+      $description .= '<li>' . $this->t('Add library name in textfield , for exmaple add <b>abc/xyz</b> where <b>abc</b> is module or theme name and <b>xyz</b> is library name.') . '</li>';
+      $description .= '<li>' . $this->t('<b>To add multiple libraries</b>, separate them with a <b>comma(,) separated.</b>') . '</li>';
+      $description .= '<li>' . $this->t('For more info please read README.txt file.') . '</li>';
+      $description .= '</ul>';
       $form['attach_library'] = [
         '#type' => 'textfield',
         '#title' => 'Add Libraries',
-        '#description' => $this->t('Add library name in textfield , for exmaple'
-          . ' add <b>"abc/xyz"</b> where <b>abc</b> is module or theme name and'
-          . ' <b>xyz</b> is library name. For more info please read README.txt file.'
-          . ' <b>To add multiple libraries</b>, separate them with a <b>comma(,) separated.</b>'),
+        '#description' => $description,
         '#default_value' => (!empty($this->options['attach_library']['attach_library'])) ? $this->options['attach_library']['attach_library'] : '',
       ];
     }

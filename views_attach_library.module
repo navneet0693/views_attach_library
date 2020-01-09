@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * This file adds a library to views page or block.
  */
 
 use Drupal\views\ViewExecutable;
@@ -14,7 +15,7 @@ function views_attach_library_views_pre_render(ViewExecutable $view) {
   $current_display = $view->current_display;
   $view_config = $view->storage->getDisplay($current_display);
   if (!empty($view_config['display_options']['display_extenders']['library_in_views_display_extender'])) {
-    $libraries = explode(',', trim($view_config['display_options']['display_extenders']['library_in_views_display_extender']['attach_library']['attach_library']));
+    $libraries = explode(',', $view_config['display_options']['display_extenders']['library_in_views_display_extender']['attach_library']['attach_library']);
     foreach ($libraries as $library) {
       // Attach library to view.
       $view->element['#attached']['library'][] = trim($library);

@@ -2,6 +2,5 @@ name: Attach Library In Views
 description: Attach library in view's  default as well as in dispaly section.
 type: module
 core: 8.x
-package: Views Library
 dependencies:
   - drupal:views
