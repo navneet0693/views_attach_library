@@ -49,9 +49,8 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    * Handle any special handling on the validate form.
    */
   public function submitOptionsForm(&$form, FormStateInterface $form_state) {
-
     if ($form_state->get('section') == 'attach_library') {
-      $this->options['attach_library'] = $form_state->cleanValues()->getValue($section);
+      $this->options['attach_library'] = $form_state->cleanValues()->getValue('attach_library');
     }
   }
 
