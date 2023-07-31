@@ -31,7 +31,7 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
       $description .= '</ul>';
       $form['attach_library'] = [
         '#type' => 'textfield',
-        '#title' => 'Add Libraries',
+        '#title' => $this->t('Add Libraries'),
         '#description' => $description,
         '#default_value' => (!empty($this->options['attach_library']['attach_library'])) ? $this->options['attach_library']['attach_library'] : '',
       ];
@@ -50,7 +50,7 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    */
   public function submitOptionsForm(&$form, FormStateInterface $form_state) {
     if ($form_state->get('section') == 'attach_library') {
-      $this->options['attach_library'] = $form_state->cleanValues()->getValue($section);
+      $this->options['attach_library'] = $form_state->cleanValues()->getValue('section');
     }
   }
 
@@ -75,12 +75,12 @@ class ViewsAttachLibraryDisplayExtender extends DisplayExtenderPluginBase {
    */
   public function optionsSummary(&$categories, &$options) {
     $categories['attach_library'] = [
-      'title' => t('Attach Library'),
+      'title' => $this->t('Attach Library'),
       'column' => 'second',
     ];
     $options['attach_library'] = [
       'category' => 'attach_library',
-      'title' => t('Attach Library'),
+      'title' => $this->t('Attach Library'),
       'value' => (empty($this->options['attach_library']['attach_library'])) ? $this->t('Add Library') : $this->t('Edit Library'),
     ];
   }
