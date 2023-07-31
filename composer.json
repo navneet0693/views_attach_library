@@ -1,0 +1,6 @@
+{
+  "name": "drupal/views_attach_library",
+  "description": "Views Googlenews",
+  "type": "drupal-module",
+  "license": "GPL-2.0+"
+}
